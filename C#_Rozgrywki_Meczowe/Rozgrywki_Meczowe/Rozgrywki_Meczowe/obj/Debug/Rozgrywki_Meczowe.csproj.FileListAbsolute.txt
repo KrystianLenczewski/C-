@@ -1,0 +1,7 @@
+C:\Users\PC\Desktop\C#\C#_Rozgrywki_Meczowe\Rozgrywki_Meczowe\Rozgrywki_Meczowe\bin\Debug\Rozgrywki_Meczowe.exe.config
+C:\Users\PC\Desktop\C#\C#_Rozgrywki_Meczowe\Rozgrywki_Meczowe\Rozgrywki_Meczowe\bin\Debug\Rozgrywki_Meczowe.exe
+C:\Users\PC\Desktop\C#\C#_Rozgrywki_Meczowe\Rozgrywki_Meczowe\Rozgrywki_Meczowe\bin\Debug\Rozgrywki_Meczowe.pdb
+C:\Users\PC\Desktop\C#\C#_Rozgrywki_Meczowe\Rozgrywki_Meczowe\Rozgrywki_Meczowe\obj\Debug\Rozgrywki_Meczowe.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\C#\C#_Rozgrywki_Meczowe\Rozgrywki_Meczowe\Rozgrywki_Meczowe\obj\Debug\Rozgrywki_Meczowe.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\C#\C#_Rozgrywki_Meczowe\Rozgrywki_Meczowe\Rozgrywki_Meczowe\obj\Debug\Rozgrywki_Meczowe.exe
+C:\Users\PC\Desktop\C#\C#_Rozgrywki_Meczowe\Rozgrywki_Meczowe\Rozgrywki_Meczowe\obj\Debug\Rozgrywki_Meczowe.pdb
