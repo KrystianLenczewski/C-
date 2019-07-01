@@ -102,10 +102,10 @@ namespace Rozgrywki_Meczowe
             this.id2 = id2;
         }
     }
-    
+
 
     public class Game
-        {
+    {
         protected Team team1, team2;
         protected int points1, points2;
         protected Referee main_referee;
@@ -143,7 +143,7 @@ namespace Rozgrywki_Meczowe
         }
         public void SetPoints2(int point2)
         {
-            points2= point2;
+            points2 = point2;
         }
         public void SetReferee(Referee r1)
         {
@@ -152,17 +152,17 @@ namespace Rozgrywki_Meczowe
 
 
     }
-    public class Game_Volleyball:Game
+    public class Game_Volleyball : Game
     {
         private List<Referee> referees_pom = new List<Referee>();
-        public Game_Volleyball(Team t1,Team t2)
+        public Game_Volleyball(Team t1, Team t2)
         {
             team1 = new Team(t1);
             team2 = new Team(t2);
             points1 = 0;
             points2 = 0;
         }
-        public void SetPomReferee(Referee r1,Referee r2)
+        public void SetPomReferee(Referee r1, Referee r2)
         {
             referees_pom.Add(new Referee(r1));
             referees_pom.Add(new Referee(r2));
@@ -170,7 +170,7 @@ namespace Rozgrywki_Meczowe
     }
     public class Game_Dodgeball : Game
     {
-        public Game_Dodgeball(Team t1,Team t2)
+        public Game_Dodgeball(Team t1, Team t2)
         {
             team1 = new Team(t1);
             team2 = new Team(t2);
@@ -178,12 +178,12 @@ namespace Rozgrywki_Meczowe
             points2 = 0;
         }
     }
-    public class Game_Tug_Of_War:Game
+    public class Game_Tug_Of_War : Game
     {
-        public Game_Tug_Of_War(Team t1,Team t2)
+        public Game_Tug_Of_War(Team t1, Team t2)
         {
             team1 = new Team(t1);
-            team2= new Team(t2);
+            team2 = new Team(t2);
             points1 = 0;
             points2 = 0;
         }
@@ -194,7 +194,7 @@ namespace Rozgrywki_Meczowe
         private List<Referee> referees = new List<Referee>();
         private List<Game_Volleyball> game_divisional_volleyball = new List<Game_Volleyball>();
         private List<Game_Tug_Of_War> game_divisional_tug_of_war = new List<Game_Tug_Of_War>();
-        private List<Game_Dodgeball> game_divisional_dodgeball= new List<Game_Dodgeball>();
+        private List<Game_Dodgeball> game_divisional_dodgeball = new List<Game_Dodgeball>();
 
         private Random rnd = new Random();
         public void addTeam(Team d)
@@ -218,7 +218,7 @@ namespace Rozgrywki_Meczowe
         public void addReferee(Referee s1) // dodanie sędziego do zawodów
         {
 
-            
+
             Referee s2 = new Referee(s1);
             referees.Add(s2);
         }
@@ -242,7 +242,7 @@ namespace Rozgrywki_Meczowe
                 string imie = s[0];
                 string nazwisko = s[1];
                 int d = int.Parse(s[2], nfi);
-                
+
 
             }
             string line1;
@@ -252,7 +252,7 @@ namespace Rozgrywki_Meczowe
 
                 Team k1 = new Team(line1);
 
-                
+
 
             }
             sr.Close();
@@ -307,11 +307,11 @@ namespace Rozgrywki_Meczowe
                         Console.WriteLine("Give id referee: ");
                         id = Console.ReadLine();
 
-                      
+
 
                         id2 = int.Parse(id);
-                        
-                            Referee s11 = new Referee(name, surname, id2);
+
+                        Referee s11 = new Referee(name, surname, id2);
                         beach.addReferee(s11);
 
                         break;
@@ -326,11 +326,11 @@ namespace Rozgrywki_Meczowe
 
 
 
-        
-    
 
 
-    Console.ReadLine();
+
+
+            Console.ReadLine();
         }
     }
 }

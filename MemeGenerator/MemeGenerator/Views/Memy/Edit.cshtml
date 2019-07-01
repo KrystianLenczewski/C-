@@ -1,0 +1,69 @@
+﻿@model MemeGenerator.Models.Memy
+
+<h2>CreateMeme</h2>
+
+@using (Html.BeginForm("Edit", "Memy", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Title, "Title")
+        @Html.TextBoxFor(model => model.Title, new { @class = "form-control", placeholder = "podaj tytul" })
+        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+    </div>
+    <input type="hidden" asp-for="Id_mema" />
+    <input type="hidden" asp-for="coverImg" />
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description, "Description")
+        @Html.TextBoxFor(model => model.Description, new { @class = "form-control", placeholder = "podaj tytul" })
+        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+    </div>
+
+    
+   
+    <div class="form-group">
+        @Html.LabelFor(model => model.Category, "Type")
+        @Html.DropDownListFor(m => m.Category, new List<SelectListItem>
+      {
+        new SelectListItem { Text="Śmieszne", Value="Funny" },
+        new SelectListItem { Text="Poważne", Value="Serious" },
+        new SelectListItem { Text="Głupie", Value="Stupid" }
+        }, "Give a category of meme", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+    </div>
+
+   
+    <div class=form-group>
+        <img src="@Url.Content(Model.coverImg)" class="img-responsive" />
+    </div>
+    <div class=form-group>
+        <input onclick="return validateOnSubmit()" type="submit" value="Edit" class="btn btn-primary" />
+    </div>
+    <div>
+        <input type="hidden" asp-for="releaseDate" />
+        <input type="hidden" asp-for="modifyDate" />
+        <a asp-controller="Memy" asp-action="Index">Back to List</a>
+    </div>
+
+}
+
+@section Scripts
+    {
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#dtReleaseDate').datetimepicker({
+                defaultDate: new Date(),
+            });
+        });
+        function validateOnSubmit() {
+            if (!$('#fileUpload').val()) {
+                $('span[data-valmsg-for="errFileUpload"]').text('The file upload is required.');
+            }
+
+
+        }
+                                        }
+    </script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+}

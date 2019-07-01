@@ -1,0 +1,99 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using MemeGenerator.Models
+@model MemeGenerator.Models.MemyCategoryViewModel
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<script src="~/js/site.js"></script>
+<link rel="stylesheet" href="~/css/site.css" />
+@if (SignInManager.IsSignedIn(User))
+{
+    <p>You are logged in</p>
+}
+else
+{
+    <p>You are logged out</p>
+}
+<h1>@ViewData["Title"]</h1>
+@if (SignInManager.IsSignedIn(User))
+{
+
+
+    @Html.ActionLink("+ Add meme", "create", "Memy", null, new { @class = "btn btn-primary", @style = "margin-bottom: 20px;" })
+
+}
+<form asp-controller="Memy" asp-action="Index" method="get">
+    <p>
+        <select asp-for="MemyCategory" asp-items="Model.Categorys">
+            <option value="">All</option>
+        </select>
+        Title: <input type="text" asp-for="SearchString" />
+        Date: <input type="text" asp-for="SearchDate" />
+        Like: <input type="number" asp-for="like" />
+
+        @*Dislike: <input type="number" asp-for="dislike" />*@
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<style>
+
+
+
+
+    body {
+        background-color: white;
+    }
+
+    .foto {
+        height: 400px;
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .table {
+        text-align: center;
+        font-size: 40px;
+        font-family: Arial;
+    }
+
+    .opis {
+        font-size: 20px;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+</style>
+<br>
+@foreach (var item in Model.Memys)
+{
+    <h1 class="titke">@item.Title</h1>
+
+
+
+
+
+
+    <a>
+        <img class="foto" src="@item.coverImg" />
+        <br />
+        <br />
+    </a>
+
+
+    <p class="opis">@item.Description</p>
+
+    @if (item.Autor == User.Identity.Name)
+    {
+        <a asp-action="Delete" asp-route-id="@item.Id_mema">Delete</a>
+        <a asp-action="Edit" asp-route-id="@item.Id_mema">Edit</a>
+    }
+    <a asp-action="CreateReport" asp-route-id="@item.Id_mema">Report</a>
+
+    <a asp-action="Show" asp-route-id="@item.Id_mema">Preview</a>
+
+
+
+}

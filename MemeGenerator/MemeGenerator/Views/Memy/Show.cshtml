@@ -1,0 +1,42 @@
+﻿@model MemeGenerator.Models.Memy
+@using Microsoft.AspNetCore.Identity
+@using MemeGenerator.Models
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "Show";
+}
+
+<h2>Show</h2>
+
+<style>
+
+
+    .foto {
+        /*height: 400px;
+        width: 400px;*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+@Html.DisplayFor(model => model.Title)
+
+<div class=form-group>
+    <img class="foto" src="@Url.Content(Model.coverImg)" class="img-responsive" />
+</div>
+
+
+
+@Html.DisplayFor(model => model.Description)
+<br />
+@*<a asp-action="Like" asp-route-id="model.Id_mema">Like</a> @Html.DisplayFor(model => model.Like)*@
+
+<a asp-action="Like" asp-route-id="@Model.Id_mema">Like</a> @Model.Like
+<br />
+
+
+<a asp-action="Dislike" asp-route-id="@Model.Id_mema">Dislike</a> @Model.Dislike
+<div>
+    <a asp-controller="Memy" asp-action="Index">Back to List</a>
+</div>
