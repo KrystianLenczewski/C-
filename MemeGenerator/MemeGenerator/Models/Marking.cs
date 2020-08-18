@@ -17,6 +17,7 @@ namespace MemeGenerator.Models
         [ForeignKey("Id_mema")]
         public int IdMema { get; set; }
         public string Authorr { get; set; }
+        public string Author { get; set; }
         public int? CountLike { get; set; }
         public int? CountDislike { get; set; }
     }
