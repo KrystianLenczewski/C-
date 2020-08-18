@@ -12,7 +12,7 @@ namespace MemeGenerator.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [HiddenInput]
         public int Id_mema { get; set; }
-        public string Autor { get; set; }
+        public string AutorMema { get; set; }
         [Required]
         public string Title { get; set; }
         [HiddenInput]
