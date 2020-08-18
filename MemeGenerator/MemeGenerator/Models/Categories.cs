@@ -12,6 +12,7 @@ namespace MemeGenerator.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdCategory { get; set; }
+
         [Required]
         public string NameCategory { get; set; }
     }
